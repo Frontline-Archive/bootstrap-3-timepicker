@@ -29,7 +29,8 @@
     this.template = options.template;
     this.appendWidgetTo = options.appendWidgetTo;
     this.showWidgetOnAddonClick = options.showWidgetOnAddonClick;
-
+    this.upArrowIcon = options.upArrowIcon;
+    this.downArrowIcon = options.downArrowIcon;
     this._init();
   };
 
@@ -255,16 +256,16 @@
 
       templateContent = '<table>'+
          '<tr>'+
-           '<td><a href="#" data-action="incrementHour"><i class="glyphicon glyphicon-chevron-up"></i></a></td>'+
+           '<td><a href="#" data-action="incrementHour"><i class="' + this.upArrowIcon + '"></i></a></td>'+
            '<td class="separator">&nbsp;</td>'+
-           '<td><a href="#" data-action="incrementMinute"><i class="glyphicon glyphicon-chevron-up"></i></a></td>'+
+           '<td><a href="#" data-action="incrementMinute"><i class="' + this.upArrowIcon + '"></i></a></td>'+
            (this.showSeconds ?
              '<td class="separator">&nbsp;</td>'+
-             '<td><a href="#" data-action="incrementSecond"><i class="glyphicon glyphicon-chevron-up"></i></a></td>'
+             '<td><a href="#" data-action="incrementSecond"><i class="' + this.upArrowIcon + '"></i></a></td>'
            : '') +
            (this.showMeridian ?
              '<td class="separator">&nbsp;</td>'+
-             '<td class="meridian-column"><a href="#" data-action="toggleMeridian"><i class="glyphicon glyphicon-chevron-up"></i></a></td>'
+             '<td class="meridian-column"><a href="#" data-action="toggleMeridian"><i class="' + this.upArrowIcon + '"></i></a></td>'
            : '') +
          '</tr>'+
          '<tr>'+
@@ -281,16 +282,16 @@
            : '') +
          '</tr>'+
          '<tr>'+
-           '<td><a href="#" data-action="decrementHour"><i class="glyphicon glyphicon-chevron-down"></i></a></td>'+
+           '<td><a href="#" data-action="decrementHour"><i class="' + this.downArrowIcon + '"></i></a></td>'+
            '<td class="separator"></td>'+
-           '<td><a href="#" data-action="decrementMinute"><i class="glyphicon glyphicon-chevron-down"></i></a></td>'+
+           '<td><a href="#" data-action="decrementMinute"><i class="' + this.downArrowIcon + '"></i></a></td>'+
            (this.showSeconds ?
             '<td class="separator">&nbsp;</td>'+
-            '<td><a href="#" data-action="decrementSecond"><i class="glyphicon glyphicon-chevron-down"></i></a></td>'
+            '<td><a href="#" data-action="decrementSecond"><i class="' + this.downArrowIcon + '"></i></a></td>'
            : '') +
            (this.showMeridian ?
             '<td class="separator">&nbsp;</td>'+
-            '<td><a href="#" data-action="toggleMeridian"><i class="glyphicon glyphicon-chevron-down"></i></a></td>'
+            '<td><a href="#" data-action="toggleMeridian"><i class="' + this.downArrowIcon + '"></i></a></td>'
            : '') +
          '</tr>'+
        '</table>';
@@ -1089,7 +1090,9 @@
     showMeridian: true,
     template: 'dropdown',
     appendWidgetTo: 'body',
-    showWidgetOnAddonClick: true
+    showWidgetOnAddonClick: true,
+    upArrowIcon : 'fa fa-angle-up',
+    downArrowIcon : 'fa fa-angle-down'
   };
 
   $.fn.timepicker.Constructor = Timepicker;
