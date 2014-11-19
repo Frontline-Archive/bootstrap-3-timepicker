@@ -86,6 +86,14 @@
         });
       }
 
+     $(window).on('resize.timepicker', function resize() {
+       if( self.$element.parent().length > 0 ) {
+         self.place();
+       } else {
+         $(window).off('resize.timepicker',resize);
+       }
+     } );
+
       this.setDefaultTime(this.defaultTime);
     },
 
@@ -668,6 +676,7 @@
       if (this.$widget) {
         this.$widget.remove();
       }
+      $(window).off('resize.timepicker');
       delete this.$element.data().timepicker;
     },
 
